@@ -23,7 +23,7 @@ public class test {
   @Test
   public void test() {
     List<JobStructure> jobStructureList = serviceImp.list();
-    System.out.println(jobStructureList.get(0).getName()+jobStructureList.get(0).getType());
+    System.out.println(jobStructureList.get(0).getName());
 
   }
 }
