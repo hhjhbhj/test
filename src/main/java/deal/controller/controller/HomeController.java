@@ -1,4 +1,4 @@
-package deal.controller;
+package deal.controller.controller;
 
 /**
  * Created by Administrator on 2016/1/4.
