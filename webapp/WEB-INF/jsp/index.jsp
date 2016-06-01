@@ -11,4 +11,7 @@
   // 重定向到真正的首页
   response.sendRedirect(request.getContextPath() + "/home");
 %>
+
+
+
 </html>

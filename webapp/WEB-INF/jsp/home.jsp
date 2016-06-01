@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
   <title>Home</title>
@@ -6,6 +7,9 @@
 <body>
 <h1>${message}</h1>
 <h2>Again!</h2>
+
+
+<div><fmt:message key="data.horizon.dw.model"/></div>
 
 
 <table id="tab" cellpadding="1" cellspacing="1" border="1">
@@ -37,7 +41,7 @@
     <th>75</th>
     <th>94</th>
     <th>69</th>
-    <th> </th>
+    <th></th>
   </tr>
   <tr>
     <th>2</th>
@@ -49,7 +53,7 @@
     <th>76</th>
     <th>71</th>
     <th>87</th>
-    <th> </th>
+    <th></th>
   </tr>
   <tr>
     <th>3</th>
@@ -61,7 +65,7 @@
     <th>68</th>
     <th>98</th>
     <th>90</th>
-    <th> </th>
+    <th></th>
   </tr>
   <tr>
     <th>4</th>
@@ -73,7 +77,7 @@
     <th>87</th>
     <th>97</th>
     <th>91</th>
-    <th> </th>
+    <th></th>
   </tr>
   <tr>
     <th>5</th>
@@ -85,7 +89,7 @@
     <th>84</th>
     <th>67</th>
     <th>81</th>
-    <th> </th>
+    <th></th>
   </tr>
   <tr>
     <th>6</th>
@@ -133,7 +137,7 @@
     <th>78</th>
     <th>98</th>
     <th>79</th>
-    <th> </th>
+    <th></th>
   </tr>
   <tr>
     <th>10</th>
@@ -145,13 +149,21 @@
     <th>77</th>
     <th>70</th>
     <th>87</th>
-    <th> </th>
+    <th></th>
   </tr>
 </table>
+
 <button onclick="alert('thankyou')"> click</button>
 
 
+
+
 <script type="text/javascript">
+  var book = {author: "tt", name: "me"};
+  o = {x:1, y:{z:[false,null,""]}};
+  s = JSON.stringify(0);
+
+
 
 </script>
 
