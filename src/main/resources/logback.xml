@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds" debug="false">
+
+  <!-- 定义日志文件 输入位置 -->
+  <!--     <property name="log_dir" value="F:/apache-tomcat-7.0.63/wtpwebapps2/dboss/logs" /> -->
+  <property name="log_dir" value="D:/logs/test" />
+
+  <!-- 日志最大的历史 30天 -->
+  <property name="maxHistory" value="30"/>
+
+  <!-- 控制台输出 -->
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <!--<encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{20} - %msg%n</pattern>
+    </encoder>-->
+    <Target>System.out</Target>
+    <encoder>
+      <pattern>%d [%t] %p %logger - %m%n</pattern>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>DEBUG</level>
+    </filter>
+  </appender>
+
+  <!-- 按照每天生成错误日志文件 -->
+  <appender name="test_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>ERROR</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <file>${log_dir}/test_error.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${log_dir}/test_error.%d.log</fileNamePattern>
+      <maxHistory>${maxHistory}</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{20} - %msg%n</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+
+  <!-- 按照每天生成正常日志文件 -->
+  <appender name="test_info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>INFO</level>
+    </filter>
+    <file>${log_dir}/test.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${log_dir}/test_error.%d.log</fileNamePattern>
+      <maxHistory>${maxHistory}</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{20} - %msg%n</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <!-- 默认日志级别 -->
+  <root>
+    <appender-ref ref="test_info" level="INFO" />
+    <appender-ref ref="test_error" />
+    <appender-ref ref="console" level="INFO"/>
+  </root>
+
+</configuration>
