@@ -5,7 +5,6 @@ package deal.controller.dao;
  */
 public class test {
   private static final int t;
-  private String str;
 
   static {
     try {
